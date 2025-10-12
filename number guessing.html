@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+body {
+    text-align:center;
+    background-color: lightcoral;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif ;
+}
+input {
+    width: 190px;
+    height: 40px;
+    border-style: groove;
+    font-size: 20px;
+}
+button {
+    border-style: groove;
+    font-size: 20px;
+    padding: 10px;
+}
+button:hover {
+    background-color: rgb(68, 5, 5);
+}
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+#attempts {
+    font-size: 16px;
+    margin-top: 10px;
+}
+    </style>
+</head>
+<body>
+    
+    <h1>Number Guessing Game</h1>
+    <p>Guess a number between 1 and 100</p>
+    <input type="number" id="guess" placeholder="Enter the Number"><br><br>
+    <button onclick="checkNumber()">Guess</button>
+    <p id="result"></p>
+    <p id="attempts"></p>
+    <script>
+      let randomNumber=Math.floor(Math.random() * 100) + 1;
+let attempts=10;
+
+function checkNumber() {
+    let userGuess=parseInt(document.getElementById("guess").value);
+    attempts--;
+    
+    
+        if(userGuess === randomNumber) {
+            document.getElementById("result").innerHTML="Correct!You guessed the number.";
+            document.getElementById("guess").disabled=true;
+        } else if(userGuess<randomNumber) {
+            document.getElementById("result").innerHTML="Too low!Try again.";
+        } else {
+           document.getElementById("result").innerHTML="Too high!Try again."
+        }
+        document.getElementById("result").innerHTML += Attempts left:${attempts};
+        if(attempts===0){
+            document.getElementById("result").innerHTML=Game Over! The number was ${randomNumber}.;
+            document.getElementById("guess").disabled=true;
+        }
+    }
+
+    </script>
+
+</body>
+</html>
